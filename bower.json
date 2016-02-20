@@ -1,0 +1,22 @@
+{
+  "name": "stock",
+  "authors": [
+    "nakedou"
+  ],
+  "description": "",
+  "main": "js/app.js",
+  "moduleType": [],
+  "keywords": [
+    "stock"
+  ],
+  "license": "MIT",
+  "homepage": "stock.nakedou.me",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
