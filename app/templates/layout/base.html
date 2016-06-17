@@ -1,6 +1,10 @@
 {% extends "bootstrap/base.html" %}
 
-{% block title %}Stock{% endblock %}
+{% from"layout/macro.html" import inv_css, inv_script %}
+
+{% block html_attribs %} ng-app="stock"  lang="en"{% endblock %}
+
+{% block title %}nakedou -- 势不可挡 -- {% endblock %}
 
 {% block navbar %}
 <div class="navbar navbar-inverse" role="navigation">
@@ -17,7 +21,11 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
-                <li><a href="/users">Profile</a></li>
+                <li><a href="/stocks">My Stocks</a></li>
+                <li><a href="/user/nakedou">About Me</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/signin">Signin</a></li>
             </ul>
         </div>
     </div>
@@ -28,4 +36,9 @@
 <div class="container">
     {% block page_content %}{% endblock %}
 </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ inv_script('/static/js/angular.js') }}
+    {{ inv_script('/static/js/app.js') }}
 {% endblock %}

@@ -1,0 +1,11 @@
+{% macro inv_css(file) %}
+    <link rel="stylesheet" href="{{ file }}">
+{% endmacro %}
+
+{% macro inv_script(path, sync=True) %}
+    {% if sync %}
+        <script src="{{ path }}"></script>
+    {% else %}
+        <script src="{{ path }}" async></script>
+    {% endif %}
+{% endmacro %}

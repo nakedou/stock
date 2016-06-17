@@ -1,0 +1,29 @@
+{% extends 'layout/base.html' %}
+
+{% block styles %}
+    {{ super() }}
+    {{ inv_css('/static/css/signin.css') }}
+{% endblock %}
+
+{% block page_content %}
+    <form class="form-signin" ng-controller="signinCtrl">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
+               ng-model="user.username" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password"
+               ng-model="user.password" required>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="true" ng-model="user.remember"> Remember me
+          </label>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" ng-click="signin()">Sign in</button>
+      </form>
+{% endblock %}
+
+{% block scripts %}
+    {{ inv_script('/static/js/angular.js') }}
+    {{ inv_script('/static/js/user/signin-controller.js') }}
+{% endblock %}
