@@ -1,0 +1,19 @@
+{
+  "name": "stock",
+  "version": "1.0.0",
+  "description": "stock info fetcher",
+  "main": "assert-util.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-browserify": "^0.5.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-coffee": "^2.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "nakedou",
+  "license": "ISC"
+}
