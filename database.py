@@ -3,7 +3,8 @@
 
 from sqlalchemy import create_engine
 import tushare as ts
-import MySQLdb, time
+import MySQLdb
+import time
 
 engine = create_engine('mysql://root:@127.0.0.1/stock?charset=utf8')
 
@@ -13,14 +14,13 @@ def store_stock_basics():
     df.to_sql('stock_basics', engine, if_exists='append')
 
 
-def store_new_stocks_schedule():
-    df = ts.new_stocks()
-    df.to_sql('ipo_schedule', engine, if_exists='replace')
-
-
 def store_real_time_data():
+    print('begin to update real time data......')
+    clear_real_time_data()
+
     df = ts.get_today_all()
     df.to_sql('real_time_data', engine, if_exists='append')
+    print('update real time data end')
 
 
 def init_db():
@@ -28,14 +28,11 @@ def init_db():
     return db
 
 
-# clear real time data, every day run once
 def clear_real_time_data():
-    print('clear old real time data...')
     db = init_db()
     cursor = db.cursor()
     cursor.execute("delete from real_time_data")
     db.commit()
-    print('clear old real time data end')
 
 
 # 流通市值小于100亿
@@ -51,14 +48,13 @@ def get_exclude_codes():
     return codes
 
 
-def print_var_stocks():
+def get_min_price_change_percent_fluctuation_stocks():
     print("current time is: {}".format(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))))
     db = init_db()
     cursor = db.cursor()
-    var_samp_sql = "select code, name, VAR_SAMP(changepercent) changed from real_time_data group by code"
-    sql = "select code, name from (" + var_samp_sql + ") t " + \
-          " where changed > 0 and code not in (" + ",".join(get_exclude_codes()) + ") " + \
-          " order by changed limit 20"
+    sql = "select code, name from real_time_data" + \
+          " where (high-low)/open > 0 and code not in (" + ",".join(get_exclude_codes()) + ") " + \
+          " order by (high-low)/open limit 20"
     count = cursor.execute(sql)
     if count > 0:
         results = cursor.fetchall()
@@ -68,6 +64,5 @@ def print_var_stocks():
 
 
 if __name__ == '__main__':
-    # print_var_stocks()
-    clear_real_time_data()
-
+    # store_real_time_data()
+    get_min_price_change_percent_fluctuation_stocks()
