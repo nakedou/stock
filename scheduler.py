@@ -1,10 +1,10 @@
 import schedule
 
-from database import store_real_time_data, get_min_price_change_percent_fluctuation_stocks
+from database import store_real_time_data, go_generate_data
 
 
 def run_check():
-    get_min_price_change_percent_fluctuation_stocks()
+    go_generate_data()
 
 schedule.every(5).minutes.do(store_real_time_data)
 # schedule.every().hour.do(run_check)
