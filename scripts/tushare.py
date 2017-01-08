@@ -1,12 +1,14 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
-from sqlalchemy import create_engine
-import tushare as ts
-import MySQLdb
 import time
 
-engine = create_engine('mysql://root:@127.0.0.1/stock?charset=utf8')
+from sqlalchemy import create_engine
+
+import tushare as ts
+from scripts.database import init_db, DB_URL
+
+engine = create_engine(DB_URL)
 
 
 def store_index():
@@ -26,11 +28,6 @@ def store_real_time_data():
     df = ts.get_today_all()
     df.to_sql('real_time_data', engine, if_exists='append')
     print('store real time data end')
-
-
-def init_db():
-    db = MySQLdb.connect("localhost", "root", "", "stock", charset="utf8")
-    return db
 
 
 def clear_real_time_data():
@@ -117,6 +114,8 @@ def go_generate_data():
         print(e.message)
 
 if __name__ == '__main__':
-    store_real_time_data()
-    get_min_price_change_percent_fluctuation_stocks()
-    get_max_price_change_percent_fluctuation_stocks()
+    # store_index()
+    # store_real_time_data()
+    # get_min_price_change_percent_fluctuation_stocks()
+    # get_max_price_change_percent_fluctuation_stocks()
+    store_stock_basics()

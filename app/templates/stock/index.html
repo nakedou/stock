@@ -1,9 +1,14 @@
 {% extends "layout/base.html" %}
 
 {% block page_content %}
-<div class="page-header">
-    <h1>Hello, BB!</h1>
-    <a href="/stock/list">获取列表</a>
-    <a href="/stock/longhus">龙虎榜</a>
-</div>
+    <div class="page-header" ng-controller="StocksController">
+        <h1>Hello, BB!</h1>
+        <a href="">龙虎榜</a>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ inv_script('/static/js/angular.js') }}
+    {{ inv_script('/static/js/require.js') }}
+    {{ inv_script('/static/js/main-stock.js') }}
 {% endblock %}

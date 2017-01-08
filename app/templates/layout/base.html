@@ -2,43 +2,41 @@
 
 {% from"layout/macro.html" import inv_css, inv_script %}
 
-{% block html_attribs %} ng-app="stock"  lang="en"{% endblock %}
+{% block html_attribs %} ng-app="stock"  lang="en" {% endblock %}
 
-{% block title %}nakedou -- 势不可挡 -- {% endblock %}
+{% block title %} 势不可挡 {% endblock %}
+
+{% block metas %}
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+{% endblock %}
 
 {% block navbar %}
-<div class="navbar navbar-inverse" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Stock</a>
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="/">Home</a></li>
-                <li><a href="/stocks">My Stocks</a></li>
-                <li><a href="/user/nakedou">About Me</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/signin">Signin</a></li>
-            </ul>
+    <div class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">🐂</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/">情报中心</a></li>
+                    <li><a href="/">时光机</a></li>
+                    <li><a href="/stocks">黄金城</a></li>
+                    <li><a href="/book_read">易读</a></li>
+                    <li><a href="/readme">关于我</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/signin">登录</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    {% block page_content %}{% endblock %}
-</div>
-{% endblock %}
-
-{% block scripts %}
-    {{ inv_script('/static/js/angular.js') }}
-    {{ inv_script('/static/js/app.js') }}
+    <div class="container">
+        {% block page_content %}{% endblock %}
+    </div>
 {% endblock %}
