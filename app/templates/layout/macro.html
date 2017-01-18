@@ -2,10 +2,14 @@
     <link rel="stylesheet" href="{{ file }}">
 {% endmacro %}
 
-{% macro inv_script(path, sync=True) %}
+{% macro inv_script(file, sync=True) %}
     {% if sync %}
-        <script src="{{ path }}"></script>
+        {% if dev_mode and 'main-' in  file %}
+            <script src="http://{{ local_ip() }}:8888{{ file }}?v={{ asset_hash(file, dev_mode) }}"></script>
+        {% else %}
+            <script src="{{ file }}?v={{ asset_hash(file, dev_mode) }}"></script>
+        {% endif %}
     {% else %}
-        <script src="{{ path }}" async></script>
+        <script src="{{ file }}" async></script>
     {% endif %}
 {% endmacro %}

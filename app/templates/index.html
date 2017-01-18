@@ -1,7 +1,12 @@
 {% extends "layout/base.html" %}
 
+{% block styles %}
+    {{ super() }}
+    {{ inv_css('/static/css/home/main.css') }}
+{% endblock %}
+
 {% block page_content %}
-    <div class="page-header">
-        <h1>Welcome to my garden!</h1>
+    <div class="home">
+        hh
     </div>
 {% endblock %}

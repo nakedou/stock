@@ -1,7 +1,7 @@
 {% extends "layout/base.html" %}
 
 {% block page_content %}
-    <div class="container-fluid" ng-controller="StockController">
+    <div class="container-fluid">
         <div class="row-fluid">
             <div class="span2">
                 <nav>
@@ -13,9 +13,4 @@
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block scripts %}
-    {{ inv_script("/static/js/vendor.js") }}
-    {{ inv_script('/static/js/main-stock.js') }}
 {% endblock %}

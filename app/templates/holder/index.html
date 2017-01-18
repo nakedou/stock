@@ -1,0 +1,45 @@
+{% extends "layout/base.html" %}
+
+{% block page_content %}
+    <div class="bs-docs-example" ng-controller="HoldersController">
+        <div class="tabbable tabs-below">
+            <ul class="nav nav-tabs">
+                <li class="active"><a>当前数据</a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>名称</th>
+                                <th>代码</th>
+                                <th>较上期变化</th>
+                                <th>更新日期</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="stock in stocks">
+                                <td ng-bind="$index+1"></td>
+                                <td ng-bind="stock.Name"></td>
+                                <td ng-bind="stock.StockID"></td>
+                                <td ng-bind="stock.JSQBH"></td>
+                                <td ng-bind="stock.Day"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <ul class="pagination">
+            <li ng-repeat="i in [1,2,3,4,5,6,7,8,9,10]" ng-class="{'active': ui.pageIndex==i}">
+                <a ng-click="changePage(i)" ng-bind="i"></a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ inv_script("/static/js/vendor.js") }}
+    {{ inv_script('/static/js/main-holder.js') }}
+{% endblock %}

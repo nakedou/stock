@@ -26,20 +26,20 @@ class User(db.Model):
 class Stock(db.Model):
     __tablename__ = 'stock'
 
-    j_y_s = db.Column(db)
-    code = db.Column(db.String(6), nullable=False)
+    code = db.Column(db.String(6), primary_key=True)
+    j_y_s = db.Column(db.String(2), nullable=False)
     name = db.Column(db.String(64), nullable=False)
 
 
 class StockBasics(db.Model):
     __tablename__ = 'stock_basics'
 
-    code = db.Column(db.String(6), nullable=False)
+    code = db.Column(db.String(6), primary_key=True)
     name = db.Column(db.String(64), nullable=False)
 
 
 class StockHolder(db.Model):
-    __tablename__ = 'stock_holder'
+    __tablename__ = 'stock_holders'
 
     id = db.Column(db.Integer, primary_key=True)
     stock_code = db.Column(db.String(6), nullable=False)

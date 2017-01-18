@@ -2,15 +2,16 @@
 
 {% block styles %}
     {{ super() }}
-    {{ inv_css('/static/css/signin.css') }}
+    {{ inv_css('/static/css/user/main.css') }}
 {% endblock %}
 
 {% block page_content %}
-    <form class="form-signin" ng-controller="SigninCtrl">
+    <form class="form-signin">
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                ng-model="user.username" required autofocus>
+        <br />
         <label for="inputPassword" class="sr-only">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password"
                ng-model="user.password" required>
@@ -23,7 +24,3 @@
       </form>
 {% endblock %}
 
-{% block scripts %}
-    {{ inv_script('/static/js/angular.js') }}
-    {{ inv_script('/static/js/user/signin-controller.js') }}
-{% endblock %}
