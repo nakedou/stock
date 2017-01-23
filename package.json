@@ -4,17 +4,27 @@
   "description": "stock info fetcher",
   "main": "assert-util.js",
   "dependencies": {
+    "bluebird": "^3.4.7",
+    "browserify": "^13.3.0",
+    "caching-coffeeify": "^0.5.1",
     "echarts": "^3.3.2",
+    "extend": "^3.0.0",
+    "glob": "^7.1.1",
     "gulp": "^3.9.1",
+    "gulp-bless": "^3.2.1",
     "gulp-browserify": "^0.5.1",
-    "lodash": "^4.17.4"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-coffee": "^2.3.1"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "gulp-coffee": "^2.3.3",
+    "gulp-if": "^2.0.2",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.0.0",
+    "gulp-util": "^3.0.8",
+    "lodash": "^4.17.4",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.8.0",
+    "worker-farm": "^1.3.1"
   },
   "author": "nakedou",
   "license": "ISC"
