@@ -13,7 +13,7 @@ Flask-Script==2.0.5
 Flask-SQLAlchemy==2.1
 gunicorn==19.6.0
 html5lib==0.999999999
-invoke==0.15.0
+invoke==0.7.0
 itsdangerous==0.24
 Jinja2==2.8
 lxml==3.7.3
