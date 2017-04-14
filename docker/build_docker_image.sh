@@ -10,7 +10,6 @@ build_container_id=`docker run --name 'stock' -w /opt/stock -d registry.cn-hangz
 docker cp ./app/ ${build_container_id}:/opt/stock
 docker cp ./scripts/ ${build_container_id}:/opt/stock
 docker cp ./task/ ${build_container_id}:/opt/stock
-docker cp ./vendor/ ${build_container_id}:/opt/stock
 docker cp ./bower.json ${build_container_id}:/opt/stock
 docker cp ./package.json ${build_container_id}:/opt/stock
 docker cp ./gulpfile.js ${build_container_id}:/opt/stock
