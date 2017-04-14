@@ -5,6 +5,7 @@
   "main": "assert-util.js",
   "dependencies": {
     "bluebird": "^3.4.7",
+    "bower": "^1.8.0",
     "browserify": "^13.3.0",
     "caching-coffeeify": "^0.5.1",
     "echarts": "^3.3.2",
