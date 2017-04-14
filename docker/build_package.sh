@@ -8,8 +8,6 @@ source venv/bin/activate
 
 pip_home=$HOME/.pip
 
-pip2 install Mysql-python
-
 pip install -r requirements.txt
 
 npm install --python=python2.7
