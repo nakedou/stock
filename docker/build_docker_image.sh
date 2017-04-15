@@ -1,11 +1,11 @@
 #!/bin/bash
 docker stop stock
 docker rm stock
-docker images | grep registry.cn-hangzhou.aliyuncs.com/nakedou/base-4-python | awk '{print $3}' | xargs docker rmi
+#docker images | grep registry.cn-hangzhou.aliyuncs.com/nakedou/base-4-python | awk '{print $3}' | xargs docker rmi
 
 set -e
 
-build_container_id=`docker run --name 'stock' -w /opt/stock -d registry.cn-hangzhou.aliyuncs.com/nakedou/base-4-python:v4 sleep infinity`
+build_container_id=`docker run --name 'stock' -w /opt/stock -d registry.cn-hangzhou.aliyuncs.com/nakedou/base-4-python:v5 sleep infinity`
 
 docker cp ./app/ ${build_container_id}:/opt/stock
 docker cp ./scripts/ ${build_container_id}:/opt/stock
