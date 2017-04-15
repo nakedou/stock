@@ -103,4 +103,6 @@ gulp.task('server', function(done) {
     done();
 });
 
+gulp.task('ci', ['clean', 'vendorjs', 'appjs', 'image', 'css']);
+
 gulp.task('default', ['clean', 'vendorjs', 'appjs', 'image', 'css', 'server', 'watch']);

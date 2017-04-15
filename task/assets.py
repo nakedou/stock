@@ -1,6 +1,6 @@
-from invoke import ctask as task
+from invoke import ctask
 
 
-@task
+@ctask
 def compile(ctx, **kwargs):
     ctx.run('node_modules/gulp/bin/gulp.js ci')

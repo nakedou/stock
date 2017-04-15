@@ -1,7 +1,7 @@
 #!/bin/bash
-docker rmi registry.cn-hangzhou.aliyuncs.com/nakedou/stock:latest
 docker stop stock
 docker rm stock
+docker images | grep registry.cn-hangzhou.aliyuncs.com/nakedou/base-4-python | awk '{print $3}' | xargs docker rmi
 
 set -e
 

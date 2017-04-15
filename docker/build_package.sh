@@ -13,4 +13,4 @@ pip install -r requirements.txt
 npm install --python=python2.7
 node_modules/bower/bin/bower install --config.interactive=false --allow-root
 
-invoke -e clean assets.compile pkg.docker
+invoke -e assets.compile pkg.docker

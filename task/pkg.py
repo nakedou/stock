@@ -27,7 +27,7 @@ def docker(ctx, p='app'):
     app_dir = '{build_root}/docker/app'.format(**locals())
     pip = '{app_dir}/virtualenv/bin/pip'.format(**locals())
 
-    ctx.run('cp -r app run_with_tornado.py {app_dir}/'.format(**locals()))
+    ctx.run('cp -r run_with_tornado.py {app_dir}/'.format(**locals()))
     ctx.run('cp -r scripts/ {app_dir}/'.format(**locals()))
     ctx.run('cp -r ngx-runtime/ {app_dir}/'.format(**locals()))
     remove_useless_files(ctx, app_dir)
