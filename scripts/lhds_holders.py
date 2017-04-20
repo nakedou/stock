@@ -1,18 +1,16 @@
+import os
 from time import sleep
 
-import MySQLdb
 import requests
 
+from scripts.database import init_db
 
 URL_PREFIX = 'http://lhb.ipail.com/w8'
 
 
-def init_db():
-    return MySQLdb.connect("localhost", "root", "", "stock_dev", charset="utf8")
-
-
 def get_stocks_holders():
-    db = init_db()
+    dev_mode = os.getenv('ENV') == 'dev'
+    db = init_db(dev_mode)
     cursor = db.cursor()
     cursor.execute('SELECT code FROM stock')
 

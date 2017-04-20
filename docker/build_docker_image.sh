@@ -18,6 +18,7 @@ docker cp ./browserify-shim.js ${build_container_id}:/opt/stock
 docker cp ./requirements.txt ${build_container_id}:/opt/stock
 docker cp ./run_with_tornado.py ${build_container_id}:/opt/stock
 docker cp ./tasks.py ${build_container_id}:/opt/stock
+docker cp ./config.py ${build_container_id}:/opt/stock
 docker cp ./ngx-runtime ${build_container_id}:/opt/stock
 docker cp ./docker/build_package.sh ${build_container_id}:/opt/stock
 docker exec ${build_container_id} /opt/stock/build_package.sh

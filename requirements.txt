@@ -1,5 +1,6 @@
 alembic==0.8.9
 appdirs==1.4.3
+backports-abc==0.5
 beautifulsoup4==4.5.3
 blinker==1.4
 click==6.7
@@ -30,6 +31,7 @@ requests==2.10.0
 schedule==0.3.2
 six==1.10.0
 SQLAlchemy==1.1.4
+tornado==4.5
 visitor==0.1.2
 webencodings==0.5
 Werkzeug==0.11.4

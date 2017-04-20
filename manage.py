@@ -8,7 +8,7 @@ from flask.ext.script import Manager, Shell
 from app import create_app, db
 from app.models import User
 
-app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+app = create_app(os.getenv('ENV') or 'default')
 manager = Manager(app)
 migrate = Migrate(app, db)
 

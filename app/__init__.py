@@ -50,11 +50,10 @@ def _register_jinja_env_globals(app, dev_mode):
         app.jinja_env.globals['local_ip'] = lambda: socket.gethostbyname(socket.gethostname())
 
 
-def _register_blueprints(app, dev_mode=False):
+def _register_blueprints(app):
     from app.views import bp as root
     from app.api import bp as api
 
-    app.register_blueprint(root, url_prefix=None)
     app.register_blueprint(api, url_prefix='/api')
 
 
@@ -68,7 +67,7 @@ def create_app(config_name):
     moment.init_app(app)
     db.init_app(app)
 
-    _register_blueprints(app, True)
+    _register_blueprints(app)
     _register_jinja_env_globals(app, True)
 
     return app

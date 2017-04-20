@@ -8,7 +8,7 @@ from task.db import get_project_root
 
 _project_root = get_project_root(__file__)
 
-_app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+_app = create_app(os.getenv('ENV') or 'default')
 
 ns = Collection.from_module(misc)
 ns.configure({'config': _app.config, 'project_root': _project_root})

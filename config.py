@@ -25,11 +25,11 @@ class DevelopmentConfig(Config):
 
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'mysql://root:@127.0.0.1/stock?charset=utf8'
+    SQLALCHEMY_DATABASE_URI = 'mysql://root:1215225@127.0.0.1/stock?charset=utf8'
 
 
 config = {
-    'development': DevelopmentConfig,
-    'production': ProductionConfig,
+    'dev': DevelopmentConfig,
+    'prod': ProductionConfig,
     'default': DevelopmentConfig
 }
