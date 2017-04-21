@@ -6,7 +6,7 @@ var gutil = require('gulp-util')
 var uglify = require('gulp-uglify');
 var browserify = require('gulp-browserify');
 var sass = require('gulp-sass')
-var minifyCss = require('gulp-minify-css');
+var cleanCss = require('gulp-clean-css');
 var gif = require('gulp-if');
 var bless = require('gulp-bless');
 var exec = require('child_process').exec;
@@ -75,7 +75,7 @@ gulp.task('css', function sassToCss(done) {
         .pipe(sass({errLogToConsole: true, sourceComments: !isProductionMode ? 'map' : null}));
 
     if(isProductionMode){
-        cssStream = cssStream.pipe(gif(isProductionMode, minifyCss({keepSpecialComments: 0})))
+        cssStream = cssStream.pipe(gif(isProductionMode, cleanCss({keepSpecialComments: 0})))
         .pipe(bless({cacheBuster: true, imports: true}))
     }
     cssStream.pipe(gulp.dest('app/static/css'));
