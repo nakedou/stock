@@ -6,7 +6,7 @@ from task.db import get_project_root
 
 
 def remove_useless_files(ctx, app_dir):
-    ctx.run('python -m compileall {}/app'.format(app_dir))
+    ctx.run('python -m compileall {}'.format(app_dir))
     ctx.run("""bash -c '
     cd {}/app
     for pyc in $(find . -name "*.pyc"); do
@@ -14,7 +14,7 @@ def remove_useless_files(ctx, app_dir):
         mv $pyc $new_pyc
     done
     '""".format(app_dir))
-    ctx.run('find {}/app -name "*.py" -delete'.format(app_dir))
+    ctx.run('find {} -name "*.py" -delete'.format(app_dir))
 
 
 @ctask
@@ -27,6 +27,7 @@ def docker(ctx, p='app'):
     app_dir = '{build_root}/docker/app'.format(**locals())
     pip = '{app_dir}/virtualenv/bin/pip'.format(**locals())
 
+    ctx.run('mkdir -p {}'.format(app_dir))
     ctx.run('cp -r run_with_tornado.py {app_dir}/'.format(**locals()))
     ctx.run('cp -r scripts/ {app_dir}/'.format(**locals()))
     ctx.run('cp -r ngx-runtime/ {app_dir}/'.format(**locals()))
