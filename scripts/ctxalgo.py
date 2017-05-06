@@ -1,5 +1,9 @@
-import os
+import sys
+from os import path, environ
+
 import requests
+
+sys.path.append(path.dirname(path.dirname(__file__)))
 
 from scripts.database import init_db
 
@@ -8,7 +12,7 @@ URL_PREFIX = 'http://ctxalgo.com'
 
 # get all stock
 def get_all_stocks():
-    dev_mode = os.getenv('ENV') == 'dev'
+    dev_mode = environ.get('ENV') == 'dev'
     db = init_db(dev_mode)
     cursor = db.cursor()
     try:
