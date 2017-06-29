@@ -5,4 +5,6 @@ bower_components*
 node_modules*
 venv*
 .idea*
+app/static*
+build*
 
