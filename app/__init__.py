@@ -54,6 +54,7 @@ def _register_blueprints(app):
     from app.views import bp as root
     from app.api import bp as api
 
+    app.register_blueprint(root, url_prefix=None)
     app.register_blueprint(api, url_prefix='/api')
 
 
