@@ -53,9 +53,13 @@ def _register_jinja_env_globals(app, dev_mode):
 def _register_blueprints(app):
     from app.views import bp as root
     from app.api import bp as api
+    from app.user import bp as user
+    from app.holder import bp as holder
 
     app.register_blueprint(root, url_prefix=None)
     app.register_blueprint(api, url_prefix='/api')
+    app.register_blueprint(user, url_prefix='/user')
+    app.register_blueprint(holder, url_prefix='/holder')
 
 
 def create_app(config_name):
