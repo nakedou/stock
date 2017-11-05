@@ -1,18 +1,24 @@
+import sys
+from os import path
+
 import schedule
+
+sys.path.append(path.dirname(path.dirname(__file__)))
+from scripts.watch_stock_register_change import stocks_register_change_check
 
 
 def run_check():
     print('')
 
-schedule.every(5).minutes.do(run_check())
+
+def run_stock_register_change_check():
+    stocks_register_change_check()
+
+# schedule.every(5).minutes.do(run_check)
 # schedule.every().hour.do(run_check)
-schedule.every().day.at("10:00").do(run_check)
-schedule.every().day.at("10:30").do(run_check)
-schedule.every().day.at("11:00").do(run_check)
-schedule.every().day.at("11:30").do(run_check)
-schedule.every().day.at("13:30").do(run_check)
-schedule.every().day.at("14:00").do(run_check)
-schedule.every().day.at("14:30").do(run_check)
+# schedule.every().day.at("10:00").do(run_check)
+
+schedule.every().day.at("20:30").do(run_stock_register_change_check)
 
 
 while True:

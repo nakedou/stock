@@ -10,7 +10,6 @@ from scripts.database import init_db
 URL_PREFIX = 'http://ctxalgo.com'
 
 
-# get all stock
 def get_all_stocks():
     dev_mode = environ.get('ENV') == 'dev'
     db = init_db(dev_mode)
@@ -22,6 +21,11 @@ def get_all_stocks():
             j_y_s = stock_code[0:2]
             code = stock_code[2:]
             name = stocks[stock_code]
+
+            cursor.execute("""SELECT * FROM stock WHERE code = '%s'""" % code)
+            if cursor.fetchone():
+                continue
+
             cursor.execute("INSERT INTO stock(j_y_s,code,`name`) VALUES (%s, %s, %s)", (j_y_s, code, name))
         db.commit()
     except Exception as e:
